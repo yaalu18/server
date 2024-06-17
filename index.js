@@ -29,7 +29,7 @@ app.get('/user/login', (req, res) => {
 });
 app.get('/user/signup', (req, res) => {
     console.log('no problem server side, problem is on hosting environment')
-    const { name,email, password } = req.body;
+    const { name,email,password } = req.body;
     // Perform login logic
     res.json({ message: 'signup successful' });
     console.log(`Received signup request for ${name} with email ${email} and password ${password}`);
