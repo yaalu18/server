@@ -23,9 +23,16 @@ app.get('/',(req,res)=>{
 })
 app.get('/user/login', (req, res) => {
     console.log('no problem server side, problem is on hosting environment')
-    const { username, password } = req.body;
+    const { email, password } = req.body;
     // Perform login logic
     res.json({ message: 'Login successful' });
+});
+app.get('/user/signup', (req, res) => {
+    console.log('no problem server side, problem is on hosting environment')
+    const { name,email, password } = req.body;
+    // Perform login logic
+    res.json({ message: 'signup successful' });
+    console.log(`Received signup request for ${name} with email ${email} and password ${password}`);
 });
 app.get('/test', (req, res) => {
     res.send('Test route');
