@@ -3,7 +3,9 @@ import users from "../models/auth.js";
 
 export const getAllUsers = async (req, res) => {
   try {
+    console.log("I am here inside getAllUsers component")
     const allUsers = await users.find();
+    console.log("mistake here inside the await function and finding the user")
     const allUserDetails = [];
     allUsers.forEach((user) => {
       allUserDetails.push({
@@ -20,7 +22,7 @@ export const getAllUsers = async (req, res) => {
   }
 };
 
-export const updateProfile = async (req, res) => {
+/*export const updateProfile = async (req, res) => {
   const { id: _id } = req.params;
   const { name, about, tags } = req.body;
 
@@ -38,4 +40,4 @@ export const updateProfile = async (req, res) => {
   } catch (error) {
     res.status(405).json({ message: error.message });
   }
-};
+};*/
