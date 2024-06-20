@@ -23,12 +23,12 @@ app.get('/',(req,res)=>{
     //res.send("This is a stackoverflow clone API")
     res.send("This is a stackoverflow clone API i made a change")
 })
-app.post('/user/login', (req, res) => {
-    console.log('no problem server side, problem is on hosting environment')
-    const {email, password } = req.body;
+//app.post('/user/login', (req, res) => {
+    //console.log('no problem server side, problem is on hosting environment')
+    //const {email, password } = req.body;
     // Perform login logic
-    res.json({ message: 'Login successful' });
-});
+    //res.json({ message: 'Login successful' });
+//});
 app.get('/test', (req, res) => {
     res.send('Test route');
   });
