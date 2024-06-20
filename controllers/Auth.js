@@ -21,7 +21,7 @@ export const signup=async(req,res)=>{
     }
 
 }
-export const login=async(req,res)=>{
+/*export const login=async(req,res)=>{
     const{email,password}=req.body;
     console.log('here inside controllers login')
     res.json({ 'message:' this `${email}` 'has logged inwith this password' `${password}` });
@@ -42,4 +42,4 @@ export const login=async(req,res)=>{
         console.log(error)
     }
 
-}
+}*/
