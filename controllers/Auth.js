@@ -4,6 +4,7 @@ import users from '../models/auth.js';
 
 export const signup=async(req,res)=>{
     const{name,email,password}=req.body;
+    res.json({ 'message:' this `${email}` 'has logged inwith this password' `${password}` });
     try{
         const existinguser=await users.findOne({email});
         if (existinguser){
