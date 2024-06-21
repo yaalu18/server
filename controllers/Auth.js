@@ -23,10 +23,10 @@ export const signup=async(req,res)=>{
     }
 
 }
-/*export const login=async(req,res)=>{
+export const login=async(req,res)=>{
     const{email,password}=req.body;
     console.log('here inside controllers login')
-    res.json({ 'message:' this `${email}` 'has logged inwith this password' `${password}` });
+   // res.json({ 'message:' this `${email}` 'has logged inwith this password' `${password}` });
     try{
         const existinguser=await users.findOne({email});
         if (!existinguser){
@@ -44,4 +44,4 @@ export const signup=async(req,res)=>{
         console.log(error)
     }
 
-}*/
+}
