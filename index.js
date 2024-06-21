@@ -23,7 +23,7 @@ app.get('/',(req,res)=>{
     //res.send("This is a stackoverflow clone API")
     res.send("This is a stackoverflow clone API i made a change")
 })
-app.get('/user/login', (req, res) => {
+app.post('/user/login', (req, res) => {
     console.log('here inside index.js login')
     const {email, password } = req.body;
     // Perform login logic
