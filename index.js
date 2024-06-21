@@ -28,7 +28,7 @@ app.post('/user/login', (req, res) => {
     const {email, password } = req.body;
     // Perform login logic
     
-    res.json({ message: 'Login successful' });
+    //res.json({ message: 'Login successful' });
      res.json({ message: `User ${email} has logged in with password ${password}` });
 
 });

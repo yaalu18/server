@@ -5,7 +5,7 @@ import users from '../models/auth.js';
 export const signup=async(req,res)=>{
     
     const{name,email,password}=req.body;
-    res.json({ message: `User ${email} has logged in with password ${password}` });
+   
     try{
         const existinguser=await users.findOne({email});
         if (existinguser){
@@ -14,6 +14,8 @@ export const signup=async(req,res)=>{
         const hashedPassword=await bcrypt.hash(password,12)
         const newUser=await users.create({name,email,password:hashedPassword})
         const token=jwt.sign({email:newUser.email,id:newUser._id},"text",{expiresIn:'1hr'})
+        res.status(201).json({
+            message: `User ${email} has signed up successfully.`})
         res.status(200).json({result:newUser,token})
     }catch(error){
         res.status(500).json('something went wrong...');
