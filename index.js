@@ -27,9 +27,11 @@ app.post('/user/login', (req, res) => {
     console.log('here inside index.js login')
     const {email, password } = req.body;
     // Perform login logic
-    res.json({ message: 'this' `${email}` 'has logged inwith this password' `${password}` });
+    
     res.json({ message: 'Login successful' });
-//});
+     res.json({ message: `User ${email} has logged in with password ${password}` });
+
+});
 app.get('/test', (req, res) => {
     res.send('Test route');
   });
