@@ -23,7 +23,7 @@ app.get('/',(req,res)=>{
     //res.send("This is a stackoverflow clone API")
     res.send("This is a stackoverflow clone API i made a change")
 })
-app.post('/user/login', (req, res) => {
+/*app.post('/user/login', (req, res) => {
     console.log('here inside index.js login , i am matching the end points')
     const {email, password } = req.body;
     // Perform login logic
@@ -31,7 +31,7 @@ app.post('/user/login', (req, res) => {
     //res.json({ message: 'Login successful' });
      res.json({ message: `User ${email} has logged in with password ${password}` });
 
-});
+});*/
 app.get('/test', (req, res) => {
     res.send('Test route');
   });
