@@ -3,6 +3,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoutes from './routes/users.js';
+import questionRoutes from './routes/Question.js'
 
 //import User from './models/auth.js';
 //import auth from './models/auth.js';
@@ -40,6 +41,7 @@ app.get('/test', (req, res) => {
 });
 
 app.use('/user',userRoutes)
+app.use('/questions',questionRoutes)
 
 
 
