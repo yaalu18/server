@@ -1,66 +1,48 @@
+// index.js
+
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoutes from './routes/users.js';
-import questionRoutes from './routes/Question.js'
-
-//import User from './models/auth.js';
-//import auth from './models/auth.js';
-//import connectDB from './connectMongoDb.js';
+import questionRoutes from './routes/Question.js';
 
 dotenv.config();
-//connectDB();
+
 const baseUrl = process.env.BASE_URL;
 console.log(`Base URL is: ${baseUrl}`);
 
-const app=express();
-app.use(express.json({limit:"30mb",extended:true}))
-app.use(express.urlencoded({limit:"30mb",extended:true}))
+const app = express();
+
+app.use(express.json({ limit: "30mb", extended: true }));
+app.use(express.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 
-app.get('/',(req,res)=>{
-    
-    //res.send("This is a stackoverflow clone API")
-    res.send("This is a stackoverflow clone API i made a change")
-})
-/*app.post('/user/login', (req, res) => {
-    console.log('here inside index.js login , i am matching the end points')
-    const {email, password } = req.body;
-    // Perform login logic
-    
-    //res.json({ message: 'Login successful' });
-     res.json({ message: `User ${email} has logged in with password ${password}` });
-
-});*/
-app.get('/test', (req, res) => {
-    res.send('Test route');
-  });
-  app.get('/check', (req, res) => { // Corrected route definition
-    res.send('checking...');
+app.get('/', (req, res) => {
+    res.send("This is a stackoverflow clone API");
 });
 
-app.use('/user',userRoutes)
-app.use('/questions',questionRoutes)
+app.get('/test', (req, res) => {
+    res.send('Test route');
+});
 
+app.get('/check', (req, res) => {
+    res.send('Checking...');
+});
 
+app.use('/user', userRoutes);
+app.use('/questions', questionRoutes);
 
-const PORT=process.env.PORT||5000
-const CONNECTION_URL="mongodb+srv://yaalu18:admin1@stackoverflow-backend-d.ecqpkpw.mongodb.net/";
-mongoose.set('strictQuery', true); // Add this line here
+const PORT = process.env.PORT || 5000;
+const CONNECTION_URL = "mongodb+srv://yaalu18:admin1@stackoverflow-backend-d.ecqpkpw.mongodb.net/";
 
-mongoose.connect(CONNECTION_URL,{useNewUrlParser:true,useUnifiedTopology:true})
-   .then(()=>{
-       console.log('mongodb connected')
+mongoose.set('strictQuery', true);
+
+mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+        console.log('MongoDB connected');
+        app.listen(PORT, () => {
+            console.log(`Server running on port ${PORT}`);
+        });
     })
-    .then(()=>
-    app.listen(PORT,()=>{
-        console.log(`server running on port ${PORT}`)
-    }))
-    .catch((err)=>console.log(err.message))
-//app.listen(PORT,()=>{
-//          console.log(`server running on port ${PORT}`)
-//      })
-
-
-
+    .catch((err) => console.error(err.message));
