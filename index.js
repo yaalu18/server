@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoutes from './routes/users.js';
-import {Router} from './routes/Question.js';
+import router from './routes/Question.js';
 
 dotenv.config();
 
@@ -31,7 +31,7 @@ app.get('/check', (req, res) => {
 });
 
 app.use('/user', userRoutes);
-app.use('/questions', Router);
+app.use('/questions', router);
 
 const PORT = process.env.PORT || 5000;
 const CONNECTION_URL = "mongodb+srv://yaalu18:admin1@stackoverflow-backend-d.ecqpkpw.mongodb.net/";
