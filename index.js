@@ -6,7 +6,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoutes from './routes/users.js';
 
-import questionRoutes from './routes/Questions.js';
+import questionRoutes from './routes/Question.js';
 dotenv.config();
 
 const baseUrl = process.env.BASE_URL;
