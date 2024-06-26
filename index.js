@@ -5,7 +5,7 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import userRoutes from './routes/users.js';
-//import router from './routes/Question.js';
+
 import questionRoutes from "./routes/Questions.js";
 dotenv.config();
 
