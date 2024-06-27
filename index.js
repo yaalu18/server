@@ -7,6 +7,7 @@ import dotenv from 'dotenv';
 import userRoutes from './routes/users.js';
 
 import questionRoutes from './routes/Question.js';
+//JWT_SECRET = "This could be anything like test"
 dotenv.config();
 
 const baseUrl = process.env.BASE_URL;
