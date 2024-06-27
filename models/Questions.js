@@ -8,7 +8,7 @@ const QuestionSchema=mongoose.Schema({
     downVote:{type:[String],default:[]},
     userPosted:{type:String,required:"Question must have an author"},
     userId:{type:String},
-    askedOn:{type:Datar,default:Date.now},
+    askedOn:{type:Date,default:Date.now},
     answer:[{
         answerBody:String,
         userAnswered:String,
