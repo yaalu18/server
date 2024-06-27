@@ -13,7 +13,7 @@ const QuestionSchema=mongoose.Schema({
         answerBody:String,
         userAnswered:String,
         userId:String,
-        anseredOn:{type:Data,default:Date.now}
+        anseredOn:{type:Date,default:Date.now}
     }]
 
 
