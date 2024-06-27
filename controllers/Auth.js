@@ -13,7 +13,8 @@ export const signup=async(req,res)=>{
         }
         const hashedPassword=await bcrypt.hash(password,12)
         const newUser=await users.create({name,email,password:hashedPassword})
-        const token=jwt.sign({email:newUser.email,id:newUser._id},"text",{expiresIn:'1hr'})
+        const token=jwt.sign({email:newUser.email,id:newUser._id}, process.env.JWT_SECRET,{expiresIn:'1hr'})
+       
         res.status(201).json({
             message: `User ${email} has signed up successfully.`})
         res.status(200).json({result:newUser,token})
@@ -36,7 +37,7 @@ export const login=async(req,res)=>{
         if (!isPasswordCrt){
             return res.status(400).json({message:"Invalid credentials"})
         } 
-        const token=jwt.sign({email:existinguser.email,id:existinguser._id},"text",{expiresIn:'1hr'});
+        const token=jwt.sign({email:existinguser.email,id:existinguser._id}, process.env.JWT_SECRET,{expiresIn:'1hr'});
         res.status(200).json({result:existinguser,token})
     }catch(error){
 
