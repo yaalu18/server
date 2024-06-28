@@ -1,4 +1,5 @@
 import Question from "../models/Questions.js";
+import mongoose from "mongoose";
 //import auth from "../middlewares/auth.js";
 export const AskQuestion = async (req, res) => {
     const postQuestionData = req.body;
@@ -10,5 +11,14 @@ export const AskQuestion = async (req, res) => {
     } catch (error) {
         console.log(error);
         res.status(409).json("Couldn't post a new question");
+    }
+}
+export const getAllQuestions=async (req,res)=>{
+    try{
+        const questionlist=await Question.find();
+        res.status(200).json(questionlist)
+    }
+    catch(error){
+        res.status(404).json({message:error.message})
     }
 }
