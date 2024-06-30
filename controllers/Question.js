@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 //import auth from "../middlewares/auth.js";
 export const AskQuestion = async (req, res) => {
     const postQuestionData = req.body;
+    console.log("Received question data from client:", postQuestionData);
     const postQuestion = new Question({ ...postQuestionData, userId: req.userId });
     try {
         console.log("I am here inside Askquestion component")
