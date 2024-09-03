@@ -4,7 +4,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import userRoutes from './routes/users.js';
+import userRoutes from './routes/users.js'; 
 
 import questionRoutes from './routes/Question.js';
 //JWT_SECRET = "This could be anything like test"
